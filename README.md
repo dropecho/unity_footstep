@@ -6,7 +6,7 @@ Look at usage below.
 To use this, install it through the package manager.
 
 You can click on the code button in the top right, copy that or just copy this 
-```git@github.com:dropecho/unity_utils.git```
+```git@github.com:dropecho/unity_footstep.git```
 
 Open unity, and open the package manager, in the dropdown select install from git, and paste that in.
 
@@ -20,7 +20,8 @@ It should then show up in the list of installed packages
 
 ## Usage
 
-This is mostly a compilation of random script utilities, so just looking through the code is best, but here is an example of using the
-Generic Scriptable Object Editor window.
+Attach a foot step player to a game object, and assign the animator and audio source.
 
-![image](https://user-images.githubusercontent.com/316782/142772675-c47cb55c-41c3-4af2-81d0-ee119f891877.png)
+For types to be detected, you need to create surface types, under window/dropecho/character/surface type.
+Assign clips to your new surface type.
+Assign the surface type to the foot step player, and you should be off to the races.
