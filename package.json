@@ -1,0 +1,9 @@
+{
+    "name": "com.dropecho.footstep",
+    "version": "0.1.0",
+    "displayName": "Dropecho FootStep Detector",
+    "description": "An automatic (or manual) footstep audio surface system.",
+    "author": "Dropecho <vantreeseba@gmail.com>",
+    "repository": "github:dropecho/unity_footstep",
+    "license": "MIT"
+}
