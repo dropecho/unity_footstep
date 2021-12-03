@@ -23,9 +23,9 @@ namespace Dropecho {
 
     [field: SerializeField] public List<FootStepSurfaceType> surfaceTypes { get; private set; }
 
-    public UnityEvent<FootStepEvent> OnLeftFootStep;
-    public UnityEvent<FootStepEvent> OnRightFootStep;
-    public UnityEvent<FootStepEvent> OnFootStep;
+    public UnityEvent<FootStepEvent> OnLeftFootStep = new UnityEvent<FootStepEvent>();
+    public UnityEvent<FootStepEvent> OnRightFootStep = new UnityEvent<FootStepEvent>();
+    public UnityEvent<FootStepEvent> OnFootStep = new UnityEvent<FootStepEvent>();
 
     float _timeSinceLastEvent = 0;
 

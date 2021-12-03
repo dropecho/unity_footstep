@@ -17,6 +17,10 @@ namespace Dropecho {
       // on the main terrain at this world position.
       float[] mix = GetTextureMix(WorldPos);
 
+      if (mix.Length == 0) {
+        return -1;
+      }
+
       float maxMix = 0;
       int maxIndex = 0;
 
@@ -32,6 +36,13 @@ namespace Dropecho {
 
     public float[] GetTextureMix(Vector3 WorldPos) {
       if (terrainData == null) {
+        return new float[] { };
+      }
+
+      if (
+        WorldPos.x < terrainPos.x || WorldPos.x > terrainPos.x + terrainData.size.x ||
+        WorldPos.z < terrainPos.z || WorldPos.z > terrainPos.z + terrainData.size.y
+      ) {
         return new float[] { };
       }
       // returns an array containing the relative mix of textures
