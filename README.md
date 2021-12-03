@@ -1,3 +1,12 @@
+An "automatic" footstep detector for humanoid animators.
+
+This can be setup to automatically detect footsteps, or you can setup animation events and trigger the footstep detector through those, allowing you
+to use just the surface detection part.
+
+An example audio setup is included (the foot step audio component).
+
+Surface types can be detected in a variety of ways, by tag, material, terrain texture index, or by attaching a FootStepSurface component.
+
 ## Quickstart
 
 Look at usage below.
@@ -20,8 +29,10 @@ It should then show up in the list of installed packages
 
 ## Usage
 
-Attach a foot step player to a game object, and assign the animator and audio source.
+Attach a foot step detector to the desired game object and assign the animator.
 
-For types to be detected, you need to create surface types, under window/dropecho/character/surface type.
-Assign clips to your new surface type.
-Assign the surface type to the foot step player, and you should be off to the races.
+Create a surface type (under dropecho/character/surfacetype), and setup the desired data.
+Assign the surface type to the foot step detector.
+
+To play audio, attach a foot step audio component, and assign a surface type and audio clip, it will 
+play the clip based on either the surface type index (i.e. surface 0 is clip 0), or the default clip if no surface is detected.
