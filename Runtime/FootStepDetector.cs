@@ -40,6 +40,9 @@ namespace Dropecho {
     bool _RFOffGround = false;
 
     void OnEnable() {
+      if (animator == null) {
+        return;
+      }
       _originalLFHeight = animator.GetBoneTransform(HumanBodyBones.LeftFoot).position.y - transform.position.y;
       _originalRFHeight = animator.GetBoneTransform(HumanBodyBones.RightFoot).position.y - transform.position.y;
 
@@ -47,7 +50,17 @@ namespace Dropecho {
       _RFTransform = animator.GetBoneTransform(HumanBodyBones.RightFoot);
     }
 
+    void OnValidate() {
+      if (animator == null) {
+        Debug.LogWarning("Foot Step Detector: cannot have a null animator.");
+      }
+    }
+
     void LateUpdate() {
+      if (animator == null) {
+        return;
+      }
+
       if (autoDetectFootSteps) {
         CheckLeftFoot();
         CheckRightFoot();
