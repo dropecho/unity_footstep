@@ -45,6 +45,6 @@ Assign the surface type to the foot step detector.
 
 
 To play audio, attach a foot step audio component, and assign a surface type and audio clip, it will 
-play the clip based on either the surface type index (i.e. surface 0 is clip 0), or the default clip if no surface is detected.
+play the clip based on either the surface type index (i.e. surface 0 is clip 0), or the default clip if no surface is detected.  
 ![image](https://user-images.githubusercontent.com/316782/146982826-7c73b388-e1fc-4bfa-a973-fef58b3d2b27.png)
 
