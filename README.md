@@ -33,11 +33,11 @@ It should then show up in the list of installed packages
 
 ## Usage
 
-Attach a foot step detector to the desired game object and assign the animator.
+Attach a foot step detector to the desired game object and assign the animator.  
 ![image](https://user-images.githubusercontent.com/316782/146982675-095cc9e7-0693-455a-9be6-d0fbdc157e39.png)
 
 
-Create a surface type (under dropecho/character/surfacetype), and setup the desired data.
+Create a surface type (under dropecho/character/surfacetype), and setup the desired data.  
 ![image](https://user-images.githubusercontent.com/316782/146982748-27177d25-ea26-4a53-98ea-a5ca9babfc75.png)
 
 Assign the surface type to the foot step detector.  
