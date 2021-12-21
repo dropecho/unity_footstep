@@ -9,7 +9,8 @@ Surface types can be detected in a variety of ways, by tag, material, terrain te
 
 ## Quickstart
 
-If you create soemthing like ![image](https://user-images.githubusercontent.com/316782/146982575-54f79832-41af-4026-bdda-bcf1788be5c9.png)
+For the most basic setup, do this  
+![image](https://user-images.githubusercontent.com/316782/146982575-54f79832-41af-4026-bdda-bcf1788be5c9.png)  
 You should be able to start playmode and have it begin working.
 
 Look at usage below for more details.
@@ -37,9 +38,11 @@ Attach a foot step detector to the desired game object and assign the animator.
 
 
 Create a surface type (under dropecho/character/surfacetype), and setup the desired data.
-Assign the surface type to the foot step detector.
-
 ![image](https://user-images.githubusercontent.com/316782/146982748-27177d25-ea26-4a53-98ea-a5ca9babfc75.png)
+
+Assign the surface type to the foot step detector.  
+![image](https://user-images.githubusercontent.com/316782/146983018-685d61d1-e0f2-430f-96fb-5425cc3ed305.png)
+
 
 To play audio, attach a foot step audio component, and assign a surface type and audio clip, it will 
 play the clip based on either the surface type index (i.e. surface 0 is clip 0), or the default clip if no surface is detected.
