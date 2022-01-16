@@ -5,5 +5,10 @@
     "description": "An automatic (or manual) footstep audio surface system.",
     "author": "Dropecho <vantreeseba@gmail.com>",
     "repository": "github:dropecho/unity_footstep",
-    "license": "MIT"
+    "license": "MIT",
+    "samples": [{
+        "displayName": "Simple Example",
+        "description": "Contains sample scene with two kinds of characters (using auto detection and animation events) to show off footsteps.",
+        "path": "Samples~/Simple"
+    }]
 }

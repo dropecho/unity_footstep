@@ -4,21 +4,20 @@ using UnityEngine;
 
 namespace Dropecho {
   public class FootStepAudio : MonoBehaviour {
+    public AudioSource source;
     public AudioClip defaultClip;
-
     public FootStepSurfaceType[] surfaces;
     public AudioClip[] clips;
 
-    public AudioSource source;
-
     public void OnFootStep(FootStepEvent evt) {
-      source.volume = Mathf.InverseLerp(0, 0.2f, Mathf.Abs(evt.velocity));
+      var volume = 0.5f;
+      // var volume = Mathf.InverseLerp(0, 0.1f, Mathf.Abs(evt.velocity));
 
       var surfaceIndex = System.Array.IndexOf(surfaces, evt.surface);
-      if (surfaceIndex != -1 && clips.Length > surfaceIndex && clips[surfaceIndex] != null) {
-        source.PlayOneShot(clips[surfaceIndex]);
+      if (surfaceIndex >= 0 && clips.Length > surfaceIndex && clips[surfaceIndex] != null) {
+        source.PlayOneShot(clips[surfaceIndex], volume);
       } else {
-        source.PlayOneShot(defaultClip);
+        source.PlayOneShot(defaultClip, volume);
       }
     }
   }

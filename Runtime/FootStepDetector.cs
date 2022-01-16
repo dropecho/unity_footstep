@@ -7,20 +7,31 @@ namespace Dropecho {
     public float velocity;
     public Vector3 position;
     public FootStepSurfaceType surface;
+
+    public FootStepEvent(float velocity, Vector3 position, FootStepSurfaceType surface) {
+      this.velocity = velocity;
+      this.position = position;
+      this.surface = surface;
+    }
   }
 
   public class FootStepDetector : MonoBehaviour {
     [Tooltip("Should the player attempt to auto detect footsteps, if false, you can still trigger this via events.")]
     public bool autoDetectFootSteps;
+
     [SerializeField, Tooltip("The animator to detect footsteps for (must be humanoid).")]
     [field: SerializeField] public Animator animator { get; private set; }
+
     [Tooltip("The minimum time between playing footstep sounds.")]
     [field: SerializeField] public float minTimeBetweenFootsteps { get; private set; } = 0.33f;
+
     [Tooltip("The height at which a foot is marked as no longer being on the ground (so it will trigger a sound later).")]
     [field: SerializeField] public float heightToMarkOffGround { get; private set; } = 0.02f;
+
     [Tooltip("The height at which a foot is marked as being on the ground (so it will trigger a sound if was marked as off the ground).")]
     [field: SerializeField] public float heightToMarkOnGround { get; private set; } = 0.02f;
 
+    [Tooltip("A list of surface types that will trigger footsteps.")]
     [field: SerializeField] public List<FootStepSurfaceType> surfaceTypes { get; private set; }
 
     public UnityEvent<FootStepEvent> OnLeftFootStep = new UnityEvent<FootStepEvent>();
@@ -79,7 +90,7 @@ namespace Dropecho {
       }
 
       if (LFVelocity < 0 && currentLFHeight <= _originalLFHeight + heightToMarkOnGround && _LFOffGround && _timeSinceLastEvent > minTimeBetweenFootsteps) {
-        var evt = new FootStepEvent() { velocity = LFVelocity, position = _LFTransform.position, surface = GetSurfaceType(_LFTransform.position) };
+        var evt = new FootStepEvent(LFVelocity, _LFTransform.position, GetSurfaceType(_LFTransform.position));
         OnLeftFootStep?.Invoke(evt);
         OnFootStep?.Invoke(evt);
         _LFOffGround = false;
@@ -96,8 +107,11 @@ namespace Dropecho {
         _RFOffGround = true;
       }
 
-      if (RFVelocity < 0 && currentRFHeight <= _originalRFHeight + heightToMarkOnGround && _RFOffGround && _timeSinceLastEvent > minTimeBetweenFootsteps) {
-        var evt = new FootStepEvent() { velocity = RFVelocity, position = _RFTransform.position, surface = GetSurfaceType(_RFTransform.position) };
+      var footIsTravelingDownwards = RFVelocity < 0;
+      var footIsOnGround = currentRFHeight <= _originalRFHeight + heightToMarkOnGround;
+
+      if (footIsOnGround && footIsTravelingDownwards && _RFOffGround && _timeSinceLastEvent > minTimeBetweenFootsteps) {
+        var evt = new FootStepEvent(RFVelocity, _RFTransform.position, GetSurfaceType(_RFTransform.position));
         OnRightFootStep?.Invoke(evt);
         OnFootStep?.Invoke(evt);
         _RFOffGround = false;
@@ -122,7 +136,7 @@ namespace Dropecho {
 
     public void FootStep() {
       var velocity = (transform.position - _previousPosition).magnitude;
-      var evt = new FootStepEvent() { velocity = velocity, position = transform.position, surface = GetSurfaceType(transform.position) };
+      var evt = new FootStepEvent() { velocity = 1, position = transform.position, surface = GetSurfaceType(transform.position) };
       OnFootStep?.Invoke(evt);
       _timeSinceLastEvent = 0;
     }
