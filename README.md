@@ -7,14 +7,6 @@ An example audio setup is included (the foot step audio component).
 
 Surface types can be detected in a variety of ways, by tag, material, terrain texture index, or by attaching a FootStepSurface component.
 
-## Quickstart
-
-For the most basic setup, do this  
-![image](https://user-images.githubusercontent.com/316782/146982575-54f79832-41af-4026-bdda-bcf1788be5c9.png)  
-You should be able to start playmode and have it begin working.
-
-Look at usage below for more details.
-
 ## Install
 To use this, install it through the package manager.
 
@@ -30,6 +22,13 @@ Open unity, and open the package manager, in the dropdown select install from gi
 It should then show up in the list of installed packages  
 ![image](https://user-images.githubusercontent.com/316782/142772781-1e59901a-db67-4765-ba4d-c913f4a7925f.png)
 
+## Quickstart
+
+For the most basic setup, do this  
+![image](https://user-images.githubusercontent.com/316782/146982575-54f79832-41af-4026-bdda-bcf1788be5c9.png)  
+You should be able to start playmode and have it begin working.
+
+Look at usage below for more details.
 
 ## Usage
 
