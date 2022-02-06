@@ -7,6 +7,8 @@ An example audio setup is included (the foot step audio component).
 
 Surface types can be detected in a variety of ways, by tag, material, terrain texture index, or by attaching a FootStepSurface component.
 
+[Example Video](https://www.youtube.com/watch?v=BFf3PyW09tQ)
+
 ## Install
 To use this, install it through the package manager.
 
