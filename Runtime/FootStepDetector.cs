@@ -62,8 +62,8 @@ namespace Dropecho {
     }
 
     void OnValidate() {
-      if (animator == null) {
-        Debug.LogWarning("Foot Step Detector: cannot have a null animator.");
+      if (animator == null && autoDetectFootSteps) {
+        Debug.LogWarning("Foot Step Detector: Cannot auto detect foot steps when animator is null.");
       }
     }
 
