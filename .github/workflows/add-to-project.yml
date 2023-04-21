@@ -15,4 +15,4 @@ jobs:
           # You can target a project in a different organization
           # to the issue
           project-url: https://github.com/orgs/dropecho/projects/5
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_PROJECTS_ACTIONS_TOKEN }}
